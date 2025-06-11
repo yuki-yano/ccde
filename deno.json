@@ -1,0 +1,31 @@
+{
+  "name": "@yuki-yano/ccde",
+  "version": "0.1.0",
+  "description": "Tmux layout manager with YAML/JSON configuration",
+  "main": "./src/main.ts",
+  "tasks": {
+    "dev": "deno run --allow-read --allow-write --allow-run src/main.ts",
+    "tui": "deno run --allow-read --allow-write --allow-run --allow-env src/main.ts -t",
+    "build": "deno compile --allow-read --allow-write --allow-run --allow-env --output ccde src/main.ts",
+    "test": "deno test --allow-read --allow-write"
+  },
+  "imports": {
+    "@std/yaml": "jsr:@std/yaml@^1.0.5",
+    "@std/cli": "jsr:@std/cli@^1.0.6",
+    "@david/dax": "jsr:@david/dax@^0.42.0",
+    "react": "npm:react@18.2.0",
+    "ink": "npm:ink@4.4.1",
+    "@types/react": "npm:@types/react@18.2.0"
+  },
+  "exports": {
+    ".": "./src/main.ts"
+  },
+  "fmt": {
+    "lineWidth": 120
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  },
+  "nodeModulesDir": "auto"
+}

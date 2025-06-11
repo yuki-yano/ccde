@@ -1,0 +1,19 @@
+name: "Development Layout"
+layout:
+  type: horizontal
+  ratio: [70, 30]
+  panes:
+    - type: vertical
+      ratio: [70, 30]
+      panes:
+        - name: "neovim"
+          command: "nvim"
+          focus: true
+        - type: horizontal
+          ratio: [1, 1, 1]
+          panes:
+            - name: "term1"
+            - name: "term2"
+            - name: "term3"
+    - name: "claude-code"
+      command: "claude"
