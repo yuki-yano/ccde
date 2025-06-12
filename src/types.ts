@@ -21,14 +21,14 @@ export type TmuxCommand = {
   description?: string;
 };
 
-export function isPaneConfig(
+export const isPaneConfig = (
   config: PaneConfig | ContainerConfig,
-): config is PaneConfig {
+): config is PaneConfig => {
   return !("type" in config);
 }
 
-export function isContainerConfig(
+export const isContainerConfig = (
   config: PaneConfig | ContainerConfig,
-): config is ContainerConfig {
+): config is ContainerConfig => {
   return "type" in config;
 }

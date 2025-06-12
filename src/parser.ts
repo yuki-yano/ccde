@@ -2,7 +2,7 @@ import { parse as parseYaml } from "@std/yaml";
 import type { ContainerConfig, LayoutConfig, PaneConfig } from "./types.ts";
 import { isContainerConfig, isPaneConfig } from "./types.ts";
 
-export async function parseLayoutFile(filePath: string): Promise<LayoutConfig> {
+export const parseLayoutFile = async (filePath: string): Promise<LayoutConfig> => {
   const content = await Deno.readTextFile(filePath);
   const ext = filePath.split(".").pop()?.toLowerCase();
 
@@ -17,7 +17,7 @@ export async function parseLayoutFile(filePath: string): Promise<LayoutConfig> {
   }
 }
 
-export function validateLayout(config: LayoutConfig): void {
+export const validateLayout = (config: LayoutConfig): void => {
   if (!config.layout) {
     throw new Error("Layout configuration must have a 'layout' property");
   }
@@ -26,14 +26,13 @@ export function validateLayout(config: LayoutConfig): void {
   validateFocus(config.layout);
 }
 
-function validateFocus(container: ContainerConfig | PaneConfig): void {
-  const focusedPanes: { node: ContainerConfig | PaneConfig; path: string }[] =
-    [];
+const validateFocus = (container: ContainerConfig | PaneConfig): void => {
+  const focusedPanes: { node: ContainerConfig | PaneConfig; path: string }[] = [];
 
-  function findFocusedPanes(
+  const findFocusedPanes = (
     node: ContainerConfig | PaneConfig,
     path: string[] = [],
-  ): void {
+  ): void => {
     if (isPaneConfig(node) && node.focus === true) {
       focusedPanes.push({ node, path: path.join(".") });
     }
@@ -59,7 +58,7 @@ function validateFocus(container: ContainerConfig | PaneConfig): void {
   }
 }
 
-function validateContainer(container: ContainerConfig): void {
+const validateContainer = (container: ContainerConfig): void => {
   if (!container.type || !["horizontal", "vertical"].includes(container.type)) {
     throw new Error("Container must have type 'horizontal' or 'vertical'");
   }

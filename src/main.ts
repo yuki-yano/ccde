@@ -13,7 +13,7 @@ type Args = {
   _: string[];
 };
 
-function printHelp() {
+const printHelp = () => {
   console.log(`
 ccde - Tmux Layout Manager
 
@@ -37,7 +37,7 @@ LAYOUT FILE FORMAT:
   `);
 }
 
-async function main() {
+const main = async () => {
   const args = parseArgs(Deno.args, {
     boolean: ["execute", "help", "tui"],
     string: ["file"],
@@ -59,7 +59,7 @@ async function main() {
     const { render } = await import("ink");
     const React = await import("react");
     const { TuiApp } = await import("./TuiApp.tsx");
-    
+
     render(React.createElement(TuiApp));
     return;
   }

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Box, Text } from 'ink';
-import { TmuxWindow } from '../tui-types.ts';
+import type React from "react";
+import { Box, Text } from "ink";
+import type { TmuxWindow } from "../tui-types.ts";
 
 interface TmuxWindowListProps {
   windows: TmuxWindow[];
@@ -8,23 +8,23 @@ interface TmuxWindowListProps {
   isActive: boolean;
 }
 
-export const TmuxWindowList: React.FC<TmuxWindowListProps> = ({ 
-  windows, 
-  selectedIndex, 
-  isActive 
+export const TmuxWindowList: React.FC<TmuxWindowListProps> = ({
+  windows,
+  selectedIndex,
+  isActive,
 }) => {
   return (
-    <Box 
-      flexDirection="column" 
-      borderStyle="single" 
+    <Box
+      flexDirection="column"
+      borderStyle="single"
       borderColor={isActive ? "green" : "gray"}
       padding={1}
       width="50%"
     >
       <Text bold underline>Tmux Windows</Text>
       {windows.map((window, index) => (
-        <Box key={window.id} marginTop={1}>
-          <Text 
+        <Box key={window.id}>
+          <Text
             color={index === selectedIndex && isActive ? "black" : undefined}
             backgroundColor={index === selectedIndex && isActive ? "green" : undefined}
           >
@@ -33,9 +33,7 @@ export const TmuxWindowList: React.FC<TmuxWindowListProps> = ({
           </Text>
         </Box>
       ))}
-      {windows.length === 0 && (
-        <Text color="gray">No windows found</Text>
-      )}
+      {windows.length === 0 && <Text color="gray">No windows found</Text>}
     </Box>
   );
 };

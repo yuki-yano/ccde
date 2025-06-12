@@ -1,10 +1,9 @@
 #!/usr/bin/env -S deno run --allow-read --allow-write --allow-run --allow-env
 
-import React from 'react';
-import { render } from 'ink';
-import { TuiApp } from './TuiApp.tsx';
+import { render } from "ink";
+import { TuiApp } from "./TuiApp.tsx";
 
-function main() {
+const main = () => {
   render(<TuiApp />);
 }
 
