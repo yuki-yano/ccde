@@ -15,7 +15,9 @@
     "@david/dax": "jsr:@david/dax@^0.42.0",
     "react": "npm:react@18.2.0",
     "ink": "npm:ink@4.4.1",
-    "@types/react": "npm:@types/react@18.2.0"
+    "@types/react": "npm:@types/react@18.2.0",
+    "tui": "jsr:@cliffy/ansi@^1.1.0",
+    "crayon": "jsr:@crayon/crayon@^4.0.3"
   },
   "exports": {
     ".": "./src/main.ts"
